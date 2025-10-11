@@ -10,10 +10,12 @@ export const InputNode = defineComponent({
     },
   },
   setup(props) {
-    const { itemCheck } = useNodeStateCheck(props.id);
+    // 输入表，不需要配置。在左侧选择拖拽过来即可
+    const { checkToTrue } = useNodeStateCheck(props.id);
+    checkToTrue();
     return () => (
       <ParentNode
-        check_value={itemCheck.value}
+        check_value={true}
         node_type="InputNode"
         data={props.data}
         node_id={props.id}

@@ -1,6 +1,7 @@
 import { defineComponent, ref } from "vue";
 import { Position, Handle } from '@vue-flow/core';
 import ParentNode from '../ParentNode';
+import { useNodeStateCheck } from '../../hooks/useNodeConfig'
 export const FilterNode = defineComponent({
   props: {
     id: {
@@ -9,13 +10,10 @@ export const FilterNode = defineComponent({
     },
   },
   setup(props) {
-    const check_value = ref(false);
-    function nodeClick() {
-      check_value.value = !check_value.value
-    }
+    const { itemCheck } = useNodeStateCheck(props.id);
     return () => (
       <ParentNode
-        check_value={check_value.value}
+        check_value={itemCheck.value}
         onNodeClick={nodeClick}
         node_id={props.id}
       >

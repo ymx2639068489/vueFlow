@@ -3,6 +3,13 @@ import useDragAndDrop from './hooks/useDnD';
 import { asideNodes } from "./nodes/data";
 import Icon from "./component/Icon";
 import './nodes/node.css';
+import { tableList } from '../../Mock';
+import { NODETYPE } from './nodes/enum';
+const leftNodes = [
+  ...asideNodes,
+  ...tableList.map(table => ({ type: NODETYPE.Input, icon: 'data', label: table, data: table, requireNode: 0 })),
+];
+// console.log(leftNodes);
 
 export default defineComponent({
   name: '',
@@ -21,12 +28,12 @@ export default defineComponent({
     }
     return () => (
       <>{
-        asideNodes.map((item) => (
+        leftNodes.map((item) => (
           <div style={style}>
             <div
               key={item.type}
               draggable
-              ondragstart={($event) => onDragStart($event, item.type)}
+              ondragstart={($event) => onDragStart($event, item.type, item)}
               style={nodestyle}
             >
               <Icon name={item.icon} width="60px" height="60px" style="margin: 10px 10px;"/>

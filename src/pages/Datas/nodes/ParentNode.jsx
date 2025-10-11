@@ -34,10 +34,11 @@ export default defineComponent({
       if (!props.check_value) return { ...res, border: "1px dashed gray" }
       return { ...res, border: "1px solid gray" }
     });
+    // console.log(node)
     const dataFoo = computed(() => props.data?.data || props.data?.label);
     function nodeClick() {
-      openDrawer(node);
       emit('nodeClick');
+      openDrawer(node);
     }
     return () => (
       <div

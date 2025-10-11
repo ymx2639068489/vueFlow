@@ -8,7 +8,7 @@ export const initialNodes = [
     type: NODETYPE.Input,
     data: {
       label: NodeTypeMap[NODETYPE.Input].label,
-      data: '在所人员信息表',
+      data: '人员信息表',
       icon: NodeTypeMap[NODETYPE.Input].icon,
       requireNode: 0,
     },

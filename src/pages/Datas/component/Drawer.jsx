@@ -14,6 +14,7 @@ export default defineComponent({
           title="I have a nested form inside!"
           direction="rtl"
           class="demo-drawer"
+          size="45%"
         >
           <DrawerBody />
         </el-drawer>

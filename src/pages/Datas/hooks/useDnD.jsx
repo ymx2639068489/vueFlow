@@ -20,12 +20,13 @@ const state = {
    * The type of the node being dragged.
    */
   draggedType: ref(null),
+  draggedData: ref(null),
   isDragOver: ref(false),
   isDragging: ref(false),
 }
 
 export default function useDragAndDrop() {
-  const { draggedType, isDragOver, isDragging } = state
+  const { draggedType, isDragOver, isDragging, draggedData } = state
 
   const { addNodes, screenToFlowCoordinate, onNodesInitialized, updateNode } = useVueFlow()
 
@@ -33,13 +34,14 @@ export default function useDragAndDrop() {
     document.body.style.userSelect = dragging ? 'none' : ''
   })
 
-  function onDragStart(event, type) {
+  function onDragStart(event, type, data) {
     if (event.dataTransfer) {
       event.dataTransfer.setData('application/vueflow', type)
       event.dataTransfer.effectAllowed = 'move'
     }
 
     draggedType.value = type
+    draggedData.value = data
     isDragging.value = true
 
     document.addEventListener('drop', onDragEnd)
@@ -85,12 +87,14 @@ export default function useDragAndDrop() {
     })
 
     const nodeId = getId()
-    const data = NodeTypeMap[draggedType.value];
     const newNode = {
       id: nodeId,
       type: draggedType.value,
       position,
-      data,
+      data: {
+        ...NodeTypeMap[draggedType.value],
+        ...draggedData.value,
+      }
     }
 
     /**

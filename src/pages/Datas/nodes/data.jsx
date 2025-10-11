@@ -126,7 +126,7 @@ export const nodeDrawerCpm = nodetypelist.reduce(
  *    { type: "", label: "", icon: "" }
  * ]
  */
-export const asideNodes = nodetypelist.map(
+export const asideNodes = nodetypelist.slice(1).map(
   ({ type, data }) => ({ type, ...data })
 );
 /**

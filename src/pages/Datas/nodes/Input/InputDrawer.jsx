@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue';
-import { getTableInfoAndDataByTableName } from '../../../../Mock'
+import { getTableInfoAndDataByTableName } from '@/Mock'
 export const InputDrawer = defineComponent({
   props: {
     node: {
@@ -10,7 +10,7 @@ export const InputDrawer = defineComponent({
   setup({ node }) {
     const tableName = node.data.data;
     const { fields, data } = getTableInfoAndDataByTableName(tableName);
-    console.log(fields, data)
+    // console.log(fields, data)
     return () => (
       <>
         <el-table data={data} stripe height="600">

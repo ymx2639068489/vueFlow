@@ -8,16 +8,20 @@ export const FilterNode = defineComponent({
       type: String,
       required: false,
     },
+    data: {
+      type: Object,
+      required: false,
+    }
   },
   setup(props) {
     const { itemCheck } = useNodeStateCheck(props.id);
     return () => (
       <ParentNode
         check_value={itemCheck.value}
-        onNodeClick={nodeClick}
         node_id={props.id}
+        data={props.data}
       >
-        <Handle type="target" position={Position.Left} style="opacity: 0" />
+        <Handle type="target" position={Position.Left} style="opacity: 0" connectable={props.data.requireNode} />
         <Handle type="source" position={Position.Right} style="opacity: 0" />
       </ParentNode>
     )

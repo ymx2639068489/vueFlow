@@ -1,11 +1,11 @@
 
 const __ = [
-  { label: '大于', value: 'gt', operator: '>' },
-  { label: '大于等于', value: 'ge', operator: '>=' },
-  { label: '小于', value: 'lt', operator: '<' },
-  { label: '小于等于', value: 'le', operator: '<=' },
-  { label: '不等于', value: 'ne', operator: '<>' },
-  { label: '等于', value: 'eq', operator: '=' },
+  { label: '大于', value: 'gt', operator: '>', fn: (key, value) => `${key} > ${value}`},
+  { label: '大于等于', value: 'ge', operator: '>=', fn: (key, value) => `${key} > ${value}` },
+  { label: '小于', value: 'lt', operator: '<', fn: (key, value) => `${key} > ${value}` },
+  { label: '小于等于', value: 'le', operator: '<=', fn: (key, value) => `${key} > ${value}` },
+  { label: '不等于', value: 'ne', operator: '<>', fn: (key, value) => `${key} > ${value}` },
+  { label: '等于', value: 'eq', operator: '=', fn: (key, value) => `${key} > ${value}` },
 ]
 
 const operatorOfType = {
@@ -19,4 +19,6 @@ const operatorOfType = {
 
 export async function filterNodeConfig() {
   
+
+
 }

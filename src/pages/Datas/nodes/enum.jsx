@@ -7,4 +7,5 @@ export const NODETYPE = {
   EditTable: 'edittablenode',
   AddField: 'addfieldnode',
   Intersection: 'intersectionnode',
+  GROUP: 'resizable'
 }

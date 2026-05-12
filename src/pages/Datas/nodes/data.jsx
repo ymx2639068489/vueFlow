@@ -7,6 +7,7 @@ import { DistinceNode, DistinceDrawer } from './Distince'
 import { AggregationNode, AggregationDrawer } from './Aggregation'
 import { IntersectionNode, IntersectionDrawer } from './Intersection'
 import { NODETYPE } from './enum';
+import { GroupNode } from './Group'
 
 const nodetypelist = [
   {
@@ -85,6 +86,16 @@ const nodetypelist = [
     drawerComponent: (props) => <IntersectionDrawer {...props} />,
     data: {
       label: '交集',
+      icon: 'intersection',
+      requireNode: 2,
+    },
+  },
+  {
+    type: NODETYPE.GROUP,
+    nodeComponent: (props) => <GroupNode {...props} />,
+    drawerComponent: (props) => <IntersectionDrawer {...props} />,
+    data: {
+      label: '分组',
       icon: 'intersection',
       requireNode: 2,
     },

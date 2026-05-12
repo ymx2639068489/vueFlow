@@ -6,7 +6,6 @@ import { operatorOfType } from './data';
 import { filterNodeConfig } from '@/Mock/Filter'
 import { useNodeStateCheck } from '../../hooks/useNodeConfig';
 /**
- * 
  * 获取当前节点的上一个节点留下来的fields，然后根据类型进行进行筛选
  */
 export const FilterDrawer = defineComponent({
@@ -47,9 +46,12 @@ export const FilterDrawer = defineComponent({
         }
       });
       console.log(res);
-      const rs = await filterNodeConfig(res);
-      console.log(rs);
-      checkToTrue();
+      try {
+        await filterNodeConfig(res);
+        checkToTrue();
+      } catch (err) {
+        console.log(err);
+      }
     }
     return () => (
       <>

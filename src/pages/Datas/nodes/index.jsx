@@ -5,5 +5,5 @@ export { EditTableNode, EditTableDrawer } from './EditTable';
 export { AddFieldNode, AddFieldDrawer } from './AddField';
 export { DistinceNode, DistinceDrawer } from './Distince';
 export { AggregationNode, AggregationDrawer } from './Aggregation';
-
+export { GroupNode } from './Group';
 export { NODETYPE } from './enum';

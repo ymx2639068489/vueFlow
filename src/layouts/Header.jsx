@@ -4,7 +4,7 @@ export default defineComponent({
   name: "",
   props: {},
   setup() {
-    const activeIndex = ref('data')
+    const activeIndex = ref('struct')
     const handleSelect = (key, keyPath) => {
       // console.log(key, keyPath)
     }
@@ -21,6 +21,7 @@ export default defineComponent({
       >
         <el-menu-item index="model">模型</el-menu-item>
         <el-menu-item index="data">数据</el-menu-item>
+        <el-menu-item index="struct">架构</el-menu-item>
         <el-sub-menu index="2" disabled>
           <el-menu-item index="2-1">item one</el-menu-item>
           <el-menu-item index="2-2">item two</el-menu-item>

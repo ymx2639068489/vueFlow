@@ -5,13 +5,15 @@ const routes = [
     path: '/',
     alias: '/data',
     component: () => import('@/pages/Datas/index')
-  },
-  {
+  },{
     path: '/model',
     component: () => import('@/pages/Models/index')
   },{
     path: '/canvas/:id',
     component: () => import('@/pages/Canvas/index')
+  },,{
+    path: '/struct',
+    component: () => import('@/pages/Structure/index')
   },
 ]
 
